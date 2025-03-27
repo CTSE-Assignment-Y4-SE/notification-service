@@ -80,9 +80,8 @@ public class NotificationServiceImpl implements NotificationService {
 		Notification notification = optionalNotification.get();
 
 		notification.setViewed(true);
-
 		notificationRepository.save(notification);
-
+		
 		log.debug("NotificationServiceImpl.updateNotification: execution started");
 		return new ResponseEntityDto(true, null);
 	}

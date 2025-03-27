@@ -11,7 +11,6 @@ import org.springframework.context.MessageSource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-
 import java.util.Locale;
 
 @Service
@@ -45,7 +44,6 @@ public class EmailServiceImpl implements EmailService {
 			throw new ModuleException(
 					messageSource.getMessage(ApplicationMessages.ERROR_FAILED_TO_SEND_EMAIL, null, Locale.ENGLISH));
 		}
-
 		log.debug("EmailServiceImpl.sendEmail(): execution ended");
 	}
 
