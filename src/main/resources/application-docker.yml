@@ -1,0 +1,45 @@
+server:
+  port: 9091
+
+grpc:
+  server:
+    port: 7071
+  address:
+    name: user-service
+    service-port:
+      user: 7072
+
+spring:
+  application:
+    name: notification-service
+  datasource:
+    url: jdbc:mysql://mysql:3306/notification-service
+    username: root
+    password: Root@123
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.yml
+  kafka:
+    consumer:
+      bootstrap-servers: kafka:9092
+      group-id: notification-service-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+    properties:
+      enable.auto.commit: false
+      max.poll.records: 10
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: sapudev2@gmail.com
+    password: amzs cvxw ybxi gunk
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
