@@ -24,7 +24,7 @@ spring:
     change-log: classpath:db/changelog/changelog-master.yml
   kafka:
     consumer:
-      bootstrap-servers: kafka:9092
+      bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS}
       group-id: notification-service-group
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
